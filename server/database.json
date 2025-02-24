@@ -1,28 +1,12 @@
 {
-    "songs": [
-      {
-        "id": "1",
-        "title": "Ocean Avenue",
-        "artist": "Yellowcard",
-        "genre": "Ocean Avenue",
-        "audio": "2003",
-        "cover": "a"
-      },
-      {
-        "id": "2",
-        "title": "Avenue",
-        "artist": "Yellowcard",
-        "genre": "Ocean Avenue",
-        "audio": "2003",
-        "cover": "v"
-      },
-      {
-        "id": "3",
-        "title": "Ocean",
-        "artist": "Yellowcard",
-        "genre": "Ocean Avenue",
-        "audio": "2003",
-        "cover": "f"
-      }
-    ]
-  }
+  "songs": [
+    {
+      "id": "1",
+      "title": "Ocean Avenue",
+      "artist": "Yellowcard",
+      "genre": "Ocean Avenue",
+      "cover": "a",
+      "audio": "data:audio/mpeg;base64,"
+    }
+  ]
+}

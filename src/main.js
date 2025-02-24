@@ -1,24 +1,38 @@
 const URL_API = "http://localhost:3000/songs";
 const section = document.getElementById("section");
-const songs = [];
-
-function printStart() {
-    if(songs == "") {       
-       return  section.innerHTML =              
-        `<p>Your library is empty.</p>
-        <p>Start adding some songs!</p> `      
-    }
-}
-
-printStart();
 
 async function getAllSongs() {
-    try {
-        const response = await fetch("URL_API")
-        const data = await response.json();        
-        return data;
-
-    }catch (error) {
-        console.log("Error al optener las canciones:", error)
-    }
+  try {
+    const response = await fetch(`${URL_API}`);
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.log("Error al obtener las canciones:", error);
+  }
 }
+
+async function printAllSongs() {
+  const songs = await getAllSongs();
+  console.log(songs);
+  if (songs == "") {
+    return (section.innerHTML = `<p>Your library is empty.</p>
+        <p>Start adding some songs!</p> `);
+  } else {
+    const article = document.createElement("article");
+    songs.forEach((song) => {
+      section.appendChild(article);
+      article.innerHTML += `
+            ${song.id}       
+            <img src="${song.cover}">
+            <p>${song.title}</p>
+            <p>${song.artist}</p>
+            <p>${song.genre}</p>
+            
+            <button onclick="${audio.genre}.play()">Play</button>
+            `;
+    });
+  }
+}
+
+
+printAllSongs();
