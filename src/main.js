@@ -4,7 +4,7 @@ const section = document.getElementById("section");
 async function getAllSongs() {
   try {
     const response = await fetch(`${URL_API}`);
-    const data = await response.json();
+    const data = await response.json();    
     return data;
   } catch (error) {
     console.log("Error al obtener las canciones:", error);
@@ -19,16 +19,17 @@ async function printAllSongs() {
         <p>Start adding some songs!</p> `);
   } else {
     const article = document.createElement("article");
+    
     songs.forEach((song) => {
       section.appendChild(article);
-      article.innerHTML += `
+      article.innerHTML = ` 
             ${song.id}       
-            <img src="${song.cover}">
+            <img src='${song.cover}'>
             <p>${song.title}</p>
             <p>${song.artist}</p>
-            <p>${song.genre}</p>
+            <p>${song.genre}</p>      
+            <audio src="${song.audio}" controls></audio>    
             
-            <button onclick="${audio.genre}.play()">Play</button>
             `;
     });
   }
