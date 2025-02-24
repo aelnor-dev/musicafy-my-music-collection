@@ -22,14 +22,14 @@ async function printAllSongs() {
     
     songs.forEach((song) => {
       section.appendChild(article);
-      article.innerHTML = ` 
-            ${song.id}       
-            <img src='${song.cover}'>
+      article.innerHTML = `    
+            <img class="cover" src='${song.cover}'>
+            <div class="song-properties">
             <p>${song.title}</p>
             <p>${song.artist}</p>
             <p>${song.genre}</p>      
-            <audio src="${song.audio}" controls></audio>    
-            
+            <audio class="controls" src="${song.audio}" controls></audio>    
+            </div>
             `;
     });
   }
