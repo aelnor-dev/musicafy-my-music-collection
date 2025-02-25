@@ -2,27 +2,48 @@ const URL_API = "http://localhost:3000/songs";
 const section = document.getElementById("section");
 
 async function createSong() {
+    const title = document.getElementById("title").value;
+    const artist = document.getElementById("artist").value;
+    const genre = document.getElementById("genre").value;
+    const imageFile = document.getElementById("image").files[0];
+    const songFile = document.getElementById("song").files[0];
+
+ 
+    const imageBase64 = imageFile ? await toBase64(imageFile) : "";
+    const songBase64 = songFile ? await toBase64(songFile) : "";
+
     const newSong = {
-            title : document.getElementById("title").value,
-            artist : document.getElementById("artist").value,
-            genre : document.getElementById("genre").value,
-            image : document.getElementById("image").value,
-            song : document.getElementById("song").value
-        }
-    
-    try {       
+        title,
+        artist,
+        genre,
+        image: imageBase64,  
+        song: songBase64      
+    };
+
+    try {
         const response = await fetch(`${URL_API}`, {
             method: "POST",
-            headers: {"Content-Type": "application/json"},
+            headers: { "Content-Type": "application/json" },
             body: JSON.stringify(newSong)
-        })       
+        });
 
-        alert("Canción creada con éxito.");        
+        alert("Canción creada con éxito.");
         printAllSongs();
     } catch (error) {
-        console.log("The song could not be created:", error)
+        console.log("The song could not be created:", error);
     }
 }
+
+// Función para convertir archivos a base64 gracias a ChatGPT pero lo entendemos 
+function toBase64(file) {
+    return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onload = () => resolve(reader.result);
+        reader.onerror = (error) => reject(error);
+    });
+}
+
 
 
 async function getAllSongs() {
