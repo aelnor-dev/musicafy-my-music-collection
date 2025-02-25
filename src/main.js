@@ -123,10 +123,13 @@ async function openModal(mode = "create", songData = null) {
     const buttonText = mode === "create" ? "Add" : "Modify";
     const buttonAction = mode === "create" ? "createSong()" : "modifySong()";
 
+    document.body.style.overflow = "hidden"
+    
+
     modal.style.display = "block";
     form.innerHTML = `
 <h4>${initialSentence}</h4>
-
+<button class="close-tag" onclick="close()"><i class="bi bi-x-lg"></i></button>
 <label for="title">Title:</label> <br>
 <input type="text" id="title" name="title"> <br>
 
@@ -157,6 +160,12 @@ async function openModal(mode = "create", songData = null) {
   } catch (error) {
     console.log("");
   }
+}
+
+function close() {
+    const modal = document.getElementById("modal");
+    modal.style.display = "none";
+    document.body.style.overflow = "auto"
 }
 
 printAllSongs();
