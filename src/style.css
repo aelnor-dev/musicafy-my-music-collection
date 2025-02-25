@@ -129,7 +129,7 @@ article {
     z-index: 200;
     position: absolute;
     border-radius: 30px;
-    /* display: none; */
+    display: none;
     color: #db2777;
     border: 1px solid #db2777;
 } 

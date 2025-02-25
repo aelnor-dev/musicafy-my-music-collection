@@ -19,7 +19,7 @@ async function createSong(newSong) {
             body: JSON.stringify(newSong)
         })
         const data = await response.json();
-        return data;
+        printAllSongs();
     } catch (error) {
         console.log("The song could not be created:", error)
     }
@@ -35,16 +35,18 @@ async function printAllSongs() {
         <p>Start adding some songs!</p> `);
     } else {
        
+        songs.innerHTML = "";
         songs.forEach((song) => {
             console.log("Canción recibida:", song); 
             const article = document.createElement("article");            
             article.innerHTML = `    
                 <img class="cover" src='${song.cover}'>
                 <div class="settings">
-                    <button  onclick="openModal()"><i class="bi bi-pencil-fill"></i></button>
+                    <button  onclick="getOneSong('${song.id}')"><i class="bi bi-pencil-fill"></i></button>
                     <button  onclick="delete()"><i class="bi bi-trash3-fill"></i></button>
                 </div>
                 <div class="song-properties">
+                <p>${song.id}>/p>
                 <p>${song.title}</p>
                 <p>${song.artist}</p>
                 <p>${song.genre}</p>      
@@ -55,18 +57,34 @@ async function printAllSongs() {
         })       
     }    
 }
-printAllSongs();
 
 
-async function openModal() {
+async function getOneSong(id) {
+    try {
+    const response = await fetch (`${URL_API}/${id}`);
+    const data = await response.json();
+    openModal("modify", data);
+        cons
+} catch (error) {
+    console.log("The song could not be obtained:", error)
+}
+}
+
+async function modifySong() {}
+
+async function openModal(mode = "create", songData = null) {
+    
     try {
 const modal = document.getElementById("modal");
 const form = document.createElement("form");
 
+const initialSentence = mode === "create" ? "Add new song" : "Modify song";
+const buttonText = mode === "create" ? "Add" : "Modify";
+const buttonAction = mode === "create" ? "createSong()" : "modifySong()";
 
 modal.style.display = "block";
 form.innerHTML = `
-<h4>Modify song</h4>
+<h4>${initialSentence}</h4>
 
 <label for="title">Title:</label> <br>
 <input type="text" id="title" name="title"> <br>
@@ -76,6 +94,7 @@ form.innerHTML = `
 
 <label for="genre">Genre:</label><br>
 <select  id="genre" name="genre">
+    <option value="" disabled selected>--Choose a genre--</option>
     <option value="rock">Rock</option>
     <option value="hip-hop">Hip hop</option>
     <option value="pop">Pop</option>
@@ -91,7 +110,7 @@ form.innerHTML = `
 <label for="song">Upload song:</label> <br>
 <input type="file" id="song" name="song" accept="audio/*"><br>
 
-<button type="submit" onclick="">Modify</button>
+<button type="submit" onclick="${buttonAction}">${buttonText}</button>
 `;
 modal.appendChild(form);
 
@@ -100,3 +119,7 @@ modal.appendChild(form);
     }
 }
 
+
+
+
+printAllSongs();
