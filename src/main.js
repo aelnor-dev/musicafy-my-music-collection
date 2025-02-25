@@ -53,8 +53,39 @@ async function printAllSongs() {
 }
 printAllSongs();
 
+
 async function openModal() {
     try {
+const modal = document.getElementById("modal");
+const form = document.createElement("form");
+form.innerHTML = `
+<p>Modify song</p>
+
+<label for="title">Title:</label> <br>
+<input type="text" id="title" name="title"> 
+
+<label for="artist">Artist:</label> <br>
+<input type="text" id="artist" name="artist">
+
+<label for="genre">Genre:</label><br>
+<select multiple id="genre" name="genre">
+    <option value="rock">Rock</option>
+    <option value="hip-hop">Hip hop</option>
+    <option value="pop">Pop</option>
+    <option value="classical">Classical</option>
+    <option value="dance">Dance</option>
+    <option value="latino">Latino</option>
+</select>
+
+<label for="image">Upload image:</label> <br>
+<input type="file" id="image" name="image" accept="image/*">
+
+
+<label for="song">Upload song:</label> <br>
+<input type="file" id="song" name="song" accept="audio/*">
+
+<button type="submit">Modify</button>
+`
 
     } catch (error) {
         console.log("")
