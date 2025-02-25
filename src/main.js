@@ -40,6 +40,10 @@ async function printAllSongs() {
             const article = document.createElement("article");            
             article.innerHTML = `    
                 <img class="cover" src='${song.cover}'>
+                <div class="settings">
+                    <button  onclick="openModal()"><i class="bi bi-pencil-fill"></i></button>
+                    <button  onclick="delete()"><i class="bi bi-trash3-fill"></i></button>
+                </div>
                 <div class="song-properties">
                 <p>${song.title}</p>
                 <p>${song.artist}</p>
@@ -58,34 +62,38 @@ async function openModal() {
     try {
 const modal = document.getElementById("modal");
 const form = document.createElement("form");
+
+
+modal.style.display = "block";
 form.innerHTML = `
-<p>Modify song</p>
+<h4>Modify song</h4>
 
 <label for="title">Title:</label> <br>
-<input type="text" id="title" name="title"> 
+<input type="text" id="title" name="title"> <br>
 
 <label for="artist">Artist:</label> <br>
-<input type="text" id="artist" name="artist">
+<input type="text" id="artist" name="artist"><br>
 
 <label for="genre">Genre:</label><br>
-<select multiple id="genre" name="genre">
+<select  id="genre" name="genre">
     <option value="rock">Rock</option>
     <option value="hip-hop">Hip hop</option>
     <option value="pop">Pop</option>
     <option value="classical">Classical</option>
     <option value="dance">Dance</option>
     <option value="latino">Latino</option>
-</select>
+</select><br>
 
 <label for="image">Upload image:</label> <br>
-<input type="file" id="image" name="image" accept="image/*">
+<input type="file" id="image" name="image" accept="image/*"><br>
 
 
 <label for="song">Upload song:</label> <br>
-<input type="file" id="song" name="song" accept="audio/*">
+<input type="file" id="song" name="song" accept="audio/*"><br>
 
-<button type="submit">Modify</button>
-`
+<button type="submit" onclick="">Modify</button>
+`;
+modal.appendChild(form);
 
     } catch (error) {
         console.log("")

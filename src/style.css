@@ -27,6 +27,7 @@ header {
 header h2 {
     color: #db2777;
     font-size: 40px;
+    margin-right: 95px;    
 }
 
 .add-button {
@@ -88,6 +89,24 @@ article {
     
 }
 
+.settings {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin: 10px 10px 0 0;    
+   position: relative;   
+}
+
+.settings i {    
+    color: white;
+    font-size: 17px;
+}
+
+.settings button {
+    background-color: transparent;
+    border: none;
+}
+
 .song-properties {
     display: flex;
     flex-direction: column;
@@ -96,16 +115,39 @@ article {
     height: 100%;
     padding-left: 10px;     
     padding-right: 10px;   
+    padding-bottom: 35px;
     background: linear-gradient(to bottom, transparent, #0c0c0c);
     color: white;
 }
 
 
 .modal {
-    width: 600px;
-    height: 500px;
-    background-color: #db2777;
-    z-index: 200;
 
+    width: 500px;
+    height: 700px;
+    background-color: #18181b;
+    z-index: 200;
+    position: absolute;
+    border-radius: 30px;
+    /* display: none; */
+    color: #db2777;
+    border: 1px solid #db2777;
 } 
+
+.modal input {   
+    background-color: #27272a;
+    width: 400px;
+    height: 30px;
+    border: 1px solid white;
+    border-radius: 5px;
+    margin-left: 40px;    
+}
+
+.modal form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+    padding: 10px;
+}
 
