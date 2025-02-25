@@ -13,14 +13,15 @@ async function createSong() {
     const songBase64 = songFile ? await toBase64(songFile) : "";
 
     const newSong = {
-        title,
-        artist,
-        genre,
-        image: imageBase64,  
-        song: songBase64      
+        title: title,
+        artist: artist,
+        genre: genre,
+        cover: imageBase64,  
+        audio: songBase64      
     };
 
     try {
+        console.log("Datos que se enviarán:", newSong);
         const response = await fetch(`${URL_API}`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
@@ -31,6 +32,7 @@ async function createSong() {
         printAllSongs();
     } catch (error) {
         console.log("The song could not be created:", error);
+        alert("the song could not be created.")
     }
 }
 
@@ -155,7 +157,7 @@ form.innerHTML = `
 <label for="song">Upload song:</label> <br>
 <input type="file" id="song" name="song" accept="audio/*"><br>
 
-<button onclick="${buttonAction}">${buttonText}</button>
+<button type="button" onclick="${buttonAction}">${buttonText}</button>
 `;
 modal.appendChild(form);
 
