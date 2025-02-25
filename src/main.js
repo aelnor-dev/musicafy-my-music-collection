@@ -1,6 +1,30 @@
 const URL_API = "http://localhost:3000/songs";
 const section = document.getElementById("section");
 
+async function createSong() {
+    const newSong = {
+            title : document.getElementById("title").value,
+            artist : document.getElementById("artist").value,
+            genre : document.getElementById("genre").value,
+            image : document.getElementById("image").value,
+            song : document.getElementById("song").value
+        }
+    
+    try {       
+        const response = await fetch(`${URL_API}`, {
+            method: "POST",
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify(newSong)
+        })       
+
+        alert("Canción creada con éxito.");        
+        printAllSongs();
+    } catch (error) {
+        console.log("The song could not be created:", error)
+    }
+}
+
+
 async function getAllSongs() {
     try {
         const response = await fetch(`${URL_API}`);
@@ -11,19 +35,33 @@ async function getAllSongs() {
     }
 }
 
-async function createSong(newSong) {
+async function getOneSong(id) {
     try {
-        const response = await fetch(`${URL_API}`, {
-            method: "POST",
-            headers: {"Content-Type": "application/json"},
-            body: JSON.stringify(newSong)
+    const response = await fetch (`${URL_API}/${id}`);
+    const data = await response.json();
+    openModal("modify", data);
+        cons
+} catch (error) {
+    console.log("The song could not be obtained:", error)
+}
+}
+
+async function modifySong(id) {}
+
+async function deleteSong(id) {
+    try {
+        const response = await fetch (`${URL_API}/${id}`, {
+            method: "DELETE",
+            headers: {
+                "Content-Type": "application/json"
+            }
         })
-        const data = await response.json();
-        printAllSongs();
-    } catch (error) {
-        console.log("The song could not be created:", error)
+
+    }catch (error) {
+        console.log("The song could not be delete:", error)
     }
 }
+
 
 async function printAllSongs() {
     const songs = await getAllSongs();
@@ -43,10 +81,10 @@ async function printAllSongs() {
                 <img class="cover" src='${song.cover}'>
                 <div class="settings">
                     <button  onclick="getOneSong('${song.id}')"><i class="bi bi-pencil-fill"></i></button>
-                    <button  onclick="delete()"><i class="bi bi-trash3-fill"></i></button>
+                    <button  onclick="deleteSong('${song.id}')"><i class="bi bi-trash3-fill"></i></button>
                 </div>
                 <div class="song-properties">
-                <p>${song.id}>/p>
+                <p>${song.id}</p>
                 <p>${song.title}</p>
                 <p>${song.artist}</p>
                 <p>${song.genre}</p>      
@@ -57,20 +95,6 @@ async function printAllSongs() {
         })       
     }    
 }
-
-
-async function getOneSong(id) {
-    try {
-    const response = await fetch (`${URL_API}/${id}`);
-    const data = await response.json();
-    openModal("modify", data);
-        cons
-} catch (error) {
-    console.log("The song could not be obtained:", error)
-}
-}
-
-async function modifySong() {}
 
 async function openModal(mode = "create", songData = null) {
     
@@ -110,7 +134,7 @@ form.innerHTML = `
 <label for="song">Upload song:</label> <br>
 <input type="file" id="song" name="song" accept="audio/*"><br>
 
-<button type="submit" onclick="${buttonAction}">${buttonText}</button>
+<button onclick="${buttonAction}">${buttonText}</button>
 `;
 modal.appendChild(form);
 
