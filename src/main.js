@@ -170,18 +170,19 @@ async function openModal(mode = "create", songData = null) {
         shadowModal.style.display = "block";
         modal.style.display = "block";
         form.innerHTML = `            
-            <h4>${initialSentence}</h4>
+        <div class="modal-header">    
+            <h4>${initialSentence}</h4> 
             <button class="close-tag" onclick="close()"><i class="bi bi-x-lg"></i></button>
-
+        </div>   
             <input type="hidden" id="data-id" value= "${mode === "modify" && songData ?`${songData.id} ` : "" }" />
 
-            <label for="title">Title:</label> <br>
-            <input type="text" id="title" name="title" value="${mode === "modify" && songData ? songData.title : ""}"> <br>
+            <label for="title">Title:</label> 
+            <input type="text" id="title" name="title" value="${mode === "modify" && songData ? songData.title : ""}"> 
 
-            <label for="artist">Artist:</label> <br>
-            <input type="text" id="artist" name="artist" value="${mode === "modify" && songData ? songData.artist : ""}"><br>
+            <label for="artist">Artist:</label>
+            <input type="text" id="artist" name="artist" value="${mode === "modify" && songData ? songData.artist : ""}">
 
-            <label for="genre">Genre:</label><br>
+            <label for="genre">Genre:</label>
             <select id="genre" name="genre">
                 <option value="" disabled>--Choose a genre--</option>
                 <option value="rock" ${mode === "modify" && songData && songData.genre === "rock" ? "selected" : ""}>Rock</option>
@@ -191,14 +192,13 @@ async function openModal(mode = "create", songData = null) {
                 <option value="dance" ${mode === "modify" && songData && songData.genre === "dance" ? "selected" : ""}>Dance</option>
                 <option value="latino" ${mode === "modify" && songData && songData.genre === "latino" ? "selected" : ""}>Latino</option>
                 </select>
-                <br>
 
-            <label for="image">Upload image:</label> <br>
-            <input type="file" id="image" name="image" accept="image/*" value="${mode === "modify" && songData ? songData.cover : ""}"><br>
+            <label for="image">Upload image:</label>
+            <input type="file" id="image" name="image" accept="image/*" value="${mode === "modify" && songData ? songData.cover : ""}">
             <input type="hidden" id="currentCover" value="${mode === "modify" && songData ? songData.cover : ""}">
 
-            <label for="song">Upload song:</label> <br>
-            <input type="file" id="song" name="song" accept="audio/*" value="${mode === "modify" && songData ? songData.audio : ""}"><br>
+            <label for="song">Upload song:</label>
+            <input type="file" id="song" name="song" accept="audio/*" value="${mode === "modify" && songData ? songData.audio : ""}">
             <input type="hidden" id="currentAudio" value="${mode === "modify" && songData ? songData.audio : ""}">
            
 
