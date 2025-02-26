@@ -30,8 +30,6 @@ header h2 {
     font-size: 60px;
     margin-right: 95px;
 color:#f54e99;
-/* text-shadow: 0 0 5px #000000, 0 0 10px #000000, 0 0 20px #000000; */
-
 animation: neon-flicker 1.5s infinite alternate;
 }
 
@@ -52,7 +50,11 @@ button:hover {
     color: white;
     border-radius: 10px;
     border: none;
+    display: flex;
+    justify-content: center; 
+    align-items: center;
 }
+
 
 .add-button:hover {
     box-shadow: 0px 5px 20px 0px #ff0073;
@@ -236,3 +238,25 @@ article {
     padding: 10px;
 }
 
+@media (max-width: 768px) {
+    .logo {
+        display: none;
+    }
+
+
+
+    .add-button {
+        min-height: 35px;
+        min-width: 50px;
+    }
+
+    .add-button i {
+        font-size:25px;
+        text-align: center;
+    }
+
+
+    .add-button p{
+        display: none;
+    }
+}
