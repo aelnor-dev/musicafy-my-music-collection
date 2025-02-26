@@ -65,9 +65,8 @@ async function getOneSong(id) {
     }
 }
 
-async function modifySong(id) { 
-
-
+async function modifySong() { 
+    const id = document.getElementById("data-id").value;
   const title = document.getElementById("title").value;
   const artist = document.getElementById("artist").value;
   const genre = document.getElementById("genre").value;
@@ -77,7 +76,7 @@ async function modifySong(id) {
   const imageBase64 = imageFile ? await toBase64(imageFile) : "";
   const songBase64 = songFile ? await toBase64(songFile) : "";
 
-  const modifiedSongSong = {
+  const modifiedSong = {
 
       title,
       artist,
@@ -171,6 +170,7 @@ async function openModal(mode = "create", songData = null) {
             <h4>${initialSentence}</h4>
             <button class="close-tag" onclick="close()"><i class="bi bi-x-lg"></i></button>
 
+            <input type="hidden" id="data-id" value= "${mode === "modify" && songData ?`${songData.id} ` : "" }" />
             <label for="title">Title:</label> <br>
             <input type="text" id="title" name="title" value="${mode === "modify" && songData ? songData.title : ""}"> <br>
 
