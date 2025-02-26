@@ -195,12 +195,11 @@ async function openModal(mode = "create", songData = null) {
 
             <label for="image">Upload image:</label> <br>
             <input type="file" id="image" name="image" accept="image/*" value="${mode === "modify" && songData ? songData.cover : ""}"><br>
-            <input type="hidden" id="currentCover" value="${songData.cover}">
+            <input type="hidden" id="currentCover" value="${mode === "modify" && songData ? songData.cover : ""}">
 
             <label for="song">Upload song:</label> <br>
             <input type="file" id="song" name="song" accept="audio/*" value="${mode === "modify" && songData ? songData.audio : ""}"><br>
-             <input type="hidden" id="currentAudio" value="${songData.audio}">
-            
+            <input type="hidden" id="currentAudio" value="${mode === "modify" && songData ? songData.audio : ""}">
            
 
             <button class="btnModal" type="button" onclick="${buttonAction}">${buttonText}</button>
