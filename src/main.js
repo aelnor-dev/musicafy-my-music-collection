@@ -66,18 +66,21 @@ async function getOneSong(id) {
 }
 
 async function modifySong() { 
-    const id = document.getElementById("data-id").value;
+  const id = document.getElementById("data-id").value;
   const title = document.getElementById("title").value;
   const artist = document.getElementById("artist").value;
   const genre = document.getElementById("genre").value;
   const imageFile = document.getElementById("image").files[0];
   const songFile = document.getElementById("song").files[0];
 
-  const imageBase64 = imageFile ? await toBase64(imageFile) : "";
-  const songBase64 = songFile ? await toBase64(songFile) : "";
+  const currentCover = document.getElementById("currentCover").value;
+  const currentAudio = document.getElementById("currentAudio").value;
+
+  const imageBase64 = imageFile ? await toBase64(imageFile) : currentCover;
+  const songBase64 = songFile ? await toBase64(songFile) : currentAudio;
+
 
   const modifiedSong = {
-
       title,
       artist,
       genre,
@@ -171,6 +174,7 @@ async function openModal(mode = "create", songData = null) {
             <button class="close-tag" onclick="close()"><i class="bi bi-x-lg"></i></button>
 
             <input type="hidden" id="data-id" value= "${mode === "modify" && songData ?`${songData.id} ` : "" }" />
+
             <label for="title">Title:</label> <br>
             <input type="text" id="title" name="title" value="${mode === "modify" && songData ? songData.title : ""}"> <br>
 
@@ -178,22 +182,26 @@ async function openModal(mode = "create", songData = null) {
             <input type="text" id="artist" name="artist" value="${mode === "modify" && songData ? songData.artist : ""}"><br>
 
             <label for="genre">Genre:</label><br>
-            <select  id="genre" name="genre" value="${mode === "modify" && songData ? songData.genre : ""}">
-                <option value="" disabled selected>--Choose a genre--</option>
-                <option value="rock">Rock</option>
-                <option value="hip-hop">Hip hop</option>
-                <option value="pop">Pop</option>
-                <option value="classical">Classical</option>
-                <option value="dance">Dance</option>
-                <option value="latino">Latino</option>
-            </select><br>
+            <select id="genre" name="genre">
+                <option value="" disabled>--Choose a genre--</option>
+                <option value="rock" ${mode === "modify" && songData && songData.genre === "rock" ? "selected" : ""}>Rock</option>
+                <option value="hip-hop" ${mode === "modify" && songData && songData.genre === "hip-hop" ? "selected" : ""}>Hip hop</option>
+                <option value="pop" ${mode === "modify" && songData && songData.genre === "pop" ? "selected" : ""}>Pop</option>
+                <option value="classical" ${mode === "modify" && songData && songData.genre === "classical" ? "selected" : ""}>Classical</option>
+                <option value="dance" ${mode === "modify" && songData && songData.genre === "dance" ? "selected" : ""}>Dance</option>
+                <option value="latino" ${mode === "modify" && songData && songData.genre === "latino" ? "selected" : ""}>Latino</option>
+                </select>
+                <br>
 
             <label for="image">Upload image:</label> <br>
             <input type="file" id="image" name="image" accept="image/*" value="${mode === "modify" && songData ? songData.cover : ""}"><br>
-
+            <input type="hidden" id="currentCover" value="${songData.cover}">
 
             <label for="song">Upload song:</label> <br>
             <input type="file" id="song" name="song" accept="audio/*" value="${mode === "modify" && songData ? songData.audio : ""}"><br>
+             <input type="hidden" id="currentAudio" value="${songData.audio}">
+            
+           
 
             <button class="btnModal" type="button" onclick="${buttonAction}">${buttonText}</button>
             `;
