@@ -27,7 +27,7 @@ async function createSong() {
             body: JSON.stringify(newSong),
         });
 
-        alert("Canción creada con éxito.");
+        alert("Song created succesfully.");
         printAllSongs();
     } catch (error) {
         console.log("The song could not be created:", error);
@@ -60,13 +60,49 @@ async function getOneSong(id) {
         const response = await fetch(`${URL_API}/${id}`);
         const data = await response.json();
         openModal("modify", data);
-        cons;
     } catch (error) {
         console.log("The song could not be obtained:", error);
     }
 }
 
-async function modifySong(id) { }
+async function modifySong(id) { 
+
+
+  const title = document.getElementById("title").value;
+  const artist = document.getElementById("artist").value;
+  const genre = document.getElementById("genre").value;
+  const imageFile = document.getElementById("image").files[0];
+  const songFile = document.getElementById("song").files[0];
+
+  const imageBase64 = imageFile ? await toBase64(imageFile) : "";
+  const songBase64 = songFile ? await toBase64(songFile) : "";
+
+  const modifiedSongSong = {
+
+      title,
+      artist,
+      genre,
+      cover: imageBase64,
+      audio: songBase64,
+  };
+
+  try {
+    const response = await fetch(`${URL_API}/${id}`,
+    {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(modifiedSong)
+    }
+  )         
+  alert("Song modified succesfully.");
+  printAllSongs();
+} catch (error) {
+  console.log("The song could not be modified:", error);
+  alert("The song could not be modified.");
+}
+}
 
 async function deleteSong(id) {
     try {
@@ -122,8 +158,10 @@ async function openModal(mode = "create", songData = null) {
         const initialSentence =
             mode === "create" ? "Add new song" : "Modify song";
         const buttonText = mode === "create" ? "Add" : "Modify";
-        const buttonAction =
-            mode === "create" ? "createSong()" : "modifySong()";
+        const buttonAction = mode === "create" ? "createSong()" : "modifySong(`${id}`)";
+      
+
+
 
         document.body.style.overflow = "hidden";
 
@@ -132,14 +170,15 @@ async function openModal(mode = "create", songData = null) {
         form.innerHTML = `            
             <h4>${initialSentence}</h4>
             <button class="close-tag" onclick="close()"><i class="bi bi-x-lg"></i></button>
+
             <label for="title">Title:</label> <br>
-            <input type="text" id="title" name="title"> <br>
+            <input type="text" id="title" name="title" value="${mode === "modify" && songData ? songData.title : ""}"> <br>
 
             <label for="artist">Artist:</label> <br>
-            <input type="text" id="artist" name="artist"><br>
+            <input type="text" id="artist" name="artist" value="${mode === "modify" && songData ? songData.artist : ""}"><br>
 
             <label for="genre">Genre:</label><br>
-            <select  id="genre" name="genre">
+            <select  id="genre" name="genre" value="${mode === "modify" && songData ? songData.genre : ""}">
                 <option value="" disabled selected>--Choose a genre--</option>
                 <option value="rock">Rock</option>
                 <option value="hip-hop">Hip hop</option>
@@ -150,11 +189,11 @@ async function openModal(mode = "create", songData = null) {
             </select><br>
 
             <label for="image">Upload image:</label> <br>
-            <input type="file" id="image" name="image" accept="image/*"><br>
+            <input type="file" id="image" name="image" accept="image/*" value="${mode === "modify" && songData ? songData.cover : ""}"><br>
 
 
             <label for="song">Upload song:</label> <br>
-            <input type="file" id="song" name="song" accept="audio/*"><br>
+            <input type="file" id="song" name="song" accept="audio/*" value="${mode === "modify" && songData ? songData.audio : ""}"><br>
 
             <button class="btnModal" type="button" onclick="${buttonAction}">${buttonText}</button>
             `;
