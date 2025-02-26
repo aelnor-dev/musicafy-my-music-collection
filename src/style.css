@@ -43,7 +43,6 @@ button:hover {
     cursor: pointer;
 }
 
-
 .add-button {
     height: 50px;
     width: 120px;
@@ -88,9 +87,9 @@ footer {
     gap: 40px;
 }
 
-article {
+article {       
     width: 400px;
-    height: 350px;
+    height: 350px;    
     border-radius: 20px;
     display: flex;
     flex-direction: column;
@@ -110,17 +109,17 @@ article {
     height: 300px;
     border-radius: 20px;
     border: 3px solid black;
-
 }
 
 .shadow {
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), #0c0c0c);
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 20%, rgba(0, 0, 0, 1) 80%);
     height: 100%;
     width: 100%;
     position: absolute;
     top: 0;
+    right: 0;   
     z-index: 2;
-    border-radius: 20px;
+    border-radius: 20px;    
 }
 
 .settings {
@@ -132,13 +131,14 @@ article {
 }
 
 .settings i {
-    color: white;
+    color: rgb(168, 33, 105);
     font-size: 17px;
+    border: black;
 }
 
 .settings button {
     background-color: transparent;
-    border: none;
+    border: none;    
 }
 
 .song-properties {
@@ -151,16 +151,30 @@ article {
 }
 
 .modal {
-    width: 500px;
+    width: 425px;
     height: 700px;
     background-color: #18181b;
-    z-index: 5;
+    z-index: 6;
     position: absolute;
-    border-radius: 30px;
+    border-radius: 10px;
     display: none;
     color: #db2777;
-    border: 1px solid #db2777;
+    border: 0.1px solid #db2777;
+    padding: 25px;
+    box-sizing: border-box;
 }
+
+#shadowModal {
+    display: none;
+    width: 100%;
+    height: 100%;
+    background-color: red;
+    backdrop-filter: blur(10px);
+    z-index: 5;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+}   
 
 .modal h4{
     font-size: 30px;
@@ -168,6 +182,9 @@ article {
 
 .modal label {
     color: white;
+   bottom: 0;
+   margin-top: 20px;
+   margin-bottom: -15px;
 }
 
 .close-tag {
@@ -184,11 +201,26 @@ article {
 
 .modal input {
     background-color: #27272a;
-    width: 400px;
-    height: 30px;
-    border: 1px solid white;
+    width: 350px;
+    height: 40px;
+    border: 1px solid #e5e7eb;
+    border-radius: 5px;    
+    color: white;    
+}
+
+#genre {
+    background-color: #27272a;
+    height: 40px;
     border-radius: 5px;
-    margin-left: 40px;
+    color: white;
+}
+
+.btnModal {
+    height: 40px;
+    border-radius: 5px;
+    background-color: #db2777;
+    border: none;
+    color: white;
 }
 
 .modal form {
@@ -197,3 +229,4 @@ article {
     justify-content: center;
     padding: 10px;
 }
+
