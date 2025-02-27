@@ -93,16 +93,38 @@ button:hover {
 
 /*---------------------------cards container-------------------------*/
 
-.section {
+.empty-sentences {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
     width: 80%;
+
+
+}
+
+.empty-library-sentence {
+    color:var(--grey);
+    font-size: 20px;
+    font-weight: 400;
+    text-align: center;
+}
+
+.add-songs-sentence {
+    color:var(--background-addButton);
+    font-size: 20px;
+    font-weight: 500;
+    text-align: center;
+}
+
+.section {
+    width: 100%;
     height: 80%;
     display: flex;
     flex:1;
     flex-wrap: wrap;
-    padding: 0em 0em 0em 12em;
-    gap: 4em;
+    gap: 2em;
     justify-content: flex-start;
-    margin-top: 18em;    
+    margin: 15% auto 10% 6%;    
 }
 
 /*------------------------card-------------------------*/
@@ -116,7 +138,7 @@ article {
     justify-content: space-between;
     position: relative;
     z-index: 1;       
-    margin-left: 1.5em;
+    /* margin-left: 1.5em; */
     border: .5px solid var(--purple);
 }
 
@@ -279,7 +301,6 @@ article:hover {
 /*------------------------------------------------------footer styles--------------------------------------*/
 
 footer {
-    margin-bottom: 0;
     width: 100%;
     background-color: var(--black);
     color: var(--white);
@@ -292,33 +313,45 @@ footer {
 
 /*----------------------------------------------------media querys------------------------------------------*/
 
+/* móviles */
 @media (max-width: 767px) {
+
+    header {
+        padding: 0 20px 0 20px;
+    }
+
     .logo {
         display: none;
     }
 
     header h2 {
         font-size: 30px;
-        margin-left: 1em;
+        margin: 0 1.2em 0 .8em;
+
     }
 
     .add-button {
-        min-height: 35px;
-        min-width: 50px;   
-        margin-right: .8em; 
+        min-height: 15px;
+        min-width: 100px; 
+        margin-left: 1em;  
+        margin-right: 1em; 
     }
 
     .add-button i {
-        font-size:25px;
+        font-size:15px;
         text-align: center;
     }
 
     .add-button p{
-        display: none;
+        font-size: 15px;
     }
 
     .section {
         padding: 0 1em;
+        gap: 2rem;
+        margin-top: 14em;
+        margin-left: 2rem;
+        margin-bottom: 8rem;
     }
     
     article {
@@ -328,6 +361,7 @@ footer {
 
 }
 
+/* tablets */
 @media (min-width: 768px) and (max-width: 1023px) {
 
     header h2 {
@@ -336,17 +370,34 @@ footer {
     }
 
     .section {
-        margin-top: 18rem;
-        gap: 3rem;
-        padding: 2rem;
-        justify-content: center;
+        margin-top: 17rem;
+        margin-bottom: 10rem;
+        gap: 2rem;
+        margin-left: 2.5rem;
     }
 
     article {
-        min-width: 35%;
+        min-width: 45%;
+    }
+
+    .add-button {
+        min-height: 15px;
+        min-width: 100px; 
+        margin-left: 1em;  
+        margin-right: 1em; 
+    }
+
+    .add-button i {
+        font-size:15px;
+        text-align: center;
+    }
+
+    .add-button p{
+        font-size: 15px;
     }
 }
 
+/* pantallas pequeñas */
 @media (min-width: 1024px) and (max-width: 1440px) {
 
     header h2 {
@@ -357,8 +408,8 @@ footer {
     .section {
         margin-top: 18rem;
         gap: 2rem;
-        padding: 2rem;
-        justify-content: center;
+        /* padding: 2rem; */
+        
     }
 
     article {

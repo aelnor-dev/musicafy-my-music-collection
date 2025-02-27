@@ -125,8 +125,11 @@ async function printAllSongs() {
     section.innerHTML = "";
 
     if (songs == "") {
-        return (section.innerHTML = `<p>Your library is empty.</p>
-        <p>Start adding some songs!</p> `);
+        return (section.innerHTML = `
+            <div class="empty-sentences">
+            <p class="empty-library-sentence">Your library is empty.</p>
+            <p class="add-songs-sentence">Start adding some songs!</p> 
+            </div>`);
     } else {
         songs.innerHTML = "";
         songs.forEach((song) => {
@@ -162,9 +165,6 @@ async function openModal(mode = "create", songData = null) {
         const buttonText = mode === "create" ? "Add" : "Modify";
         const buttonAction = mode === "create" ? "createSong()" : "modifySong(`${id}`)";
       
-
-
-
         document.body.style.overflow = "hidden";
 
         shadowModal.style.display = "block";
