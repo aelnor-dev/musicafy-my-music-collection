@@ -35,7 +35,6 @@ async function createSong() {
     }
 }
 
-// Función para convertir archivos a base64 gracias a ChatGPT pero lo entendemos
 function toBase64(file) {
     return new Promise((resolve, reject) => {
         const reader = new FileReader();
