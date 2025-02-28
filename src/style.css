@@ -276,6 +276,28 @@ article:hover {
     margin-bottom: 5rem;
 }
 
+.pop-up p {
+    margin: 10px;
+    color: var(--pink)
+}
+
+.popup-buttons-container {
+    display: flex;
+    justify-content: space-between;
+    padding:5px;
+}
+
+.pop-up-buttons {
+    min-height: 20px;
+    min-width: 60px;
+    padding: 8px;
+    margin: 10px 30px;
+    background-color: var(--background-addButton);
+    color: var(--white);
+    border-radius: 10px;
+    border: none;
+}
+
 /*------------------------------------------------------footer styles--------------------------------------*/
 
 footer {
