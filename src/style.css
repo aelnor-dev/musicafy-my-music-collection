@@ -8,7 +8,7 @@
     --background-addButton: #db2777;
     --add-button-text: white;
     --background-btnModal: #db2777;    
-    --i-color: black;   
+    --i-color: rgb(247, 240, 240);   
     
     --color-modal: #db2777;   
     --modal-input: #27272a;
@@ -93,16 +93,14 @@ button:hover {
 
 /*---------------------------cards container-------------------------*/
 
-.section {
-    width: 80%;
-    height: 80%;
+.section {    
     display: flex;
     flex:1;
     flex-wrap: wrap;
-    padding: 0em 0em 0em 12em;
-    gap: 4em;
+    margin: 10% auto 10% 7%;
+    gap: 2em;
     justify-content: flex-start;
-    margin-top: 18em;    
+    margin-top: 20em;    
 }
 
 /*------------------------card-------------------------*/
@@ -115,8 +113,7 @@ article {
     flex-direction: column;
     justify-content: space-between;
     position: relative;
-    z-index: 1;       
-    margin-left: 1.5em;
+    z-index: 1;           
     border: .5px solid var(--purple);
 }
 
@@ -154,9 +151,10 @@ article:hover {
     z-index: 3;
 }
 
-.settings i {
-    color: var(--i-color);
-    font-size: 17px;    
+.btnModify, .btnDelete {
+    color: var(--white);   
+    font-size: 18px;  
+    stroke: var(--black);  
 }
 
 .settings button {
@@ -292,6 +290,7 @@ footer {
 
 /*----------------------------------------------------media querys------------------------------------------*/
 
+/*---------movil----------*/
 @media (max-width: 767px) {
     .logo {
         display: none;
@@ -318,39 +317,47 @@ footer {
     }
 
     .section {
-        padding: 0 1em;
+        padding: 0 1em; 
+        margin-top: 15em;    
+        margin-bottom: 7rem;       
     }
     
     article {
         margin-right: 0;
-    }
-    
-
+    }    
 }
 
+/*-------------tablet----------*/
 @media (min-width: 768px) and (max-width: 1023px) {
 
     header h2 {
-        font-size: 40px;
-        margin-left: 2em;               
+        font-size: 28px;        
+                  
+    }
+    .add-button {
+        min-height: 20px;
+        min-width: 25px;  
+        
     }
 
     .section {
         margin-top: 18rem;
         gap: 3rem;
         padding: 2rem;
-        justify-content: center;
+        justify-content: flex-start;  
+        margin: 35% auto 10% 4%;             
     }
 
     article {
-        min-width: 35%;
+        min-width: 45%;
     }
 }
 
-@media (min-width: 1024px) and (max-width: 1440px) {
+/*---------------pantallas peq--------------*/
+@media (min-width: 1024px) and (max-width: 1690px) {
 
     header h2 {
-        font-size: 40px;
+        font-size: 60px;
         margin-right: 20px;         
     }
 
@@ -358,11 +365,11 @@ footer {
         margin-top: 18rem;
         gap: 2rem;
         padding: 2rem;
-        justify-content: center;
-    }
-
+        justify-content: flex-start; 
+        margin: 16% auto 10% 5%;             
+    }    
     article {
-        min-width: 25%;
+        min-width: 30%;
     }
 }
 
