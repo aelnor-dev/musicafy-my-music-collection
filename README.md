@@ -28,7 +28,7 @@ Make sure you have Node.js and npm installed on your machine. 🖥️
 
 Clone the repository:
 
-git clone https://github.com/aelnor-dev/music-collection.git
+git clone https://github.com/aelnor-dev/music-collection.git <br>
 cd music-collection
 
 Install the dependencies:
@@ -131,7 +131,7 @@ Asegúrate de tener Node.js y npm instalados en tu ordenador. 🖥️
 
 Clona el repositorio:
 
-git clone https://github.com/aelnor-dev/music-collection.git
+git clone https://github.com/aelnor-dev/music-collection.git <br>
 cd music-collection
 
 Instala las dependencias:
