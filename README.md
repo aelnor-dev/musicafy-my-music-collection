@@ -101,9 +101,9 @@ okAction(id) - Confirms the deletion in the pop-up.
 
 This project does not have a license. ⚠️ Feel free to modify and use it as you wish! 😃
 
-<p align="center"> ----------------------------------------------------------------------------------------</p>
+<p align="center">__________________________________________________________________________________________________________________________</p>
 
-🎵 Musicafy: Mi Colección de Música
+<h1>🎵 Musicafy: Mi Colección de Música</h1>
 
 ¡Bienvenido a Musicafy! Esta es una aplicación web sencilla para gestionar tus canciones favoritas. 🎶 Permite a los usuarios Crear, Leer, Actualizar y Eliminar (CRUD) canciones de su colección. La aplicación utiliza un servidor JSON para simular una API de backend. 🚀
 
