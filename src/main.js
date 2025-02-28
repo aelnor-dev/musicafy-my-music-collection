@@ -107,6 +107,7 @@ async function modifySong() {
 }
 
 async function deleteSong(id) {
+
     try {
         const response = await fetch(`${URL_API}/${id}`, {
             method: "DELETE",
@@ -220,5 +221,6 @@ function close() {
     shadowModal.style.display = "none";
     document.body.style.overflow = "auto";
 }
+
 
 printAllSongs();
