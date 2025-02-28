@@ -93,6 +93,7 @@ button:hover {
 
 /*---------------------------cards container-------------------------*/
 
+<<<<<<< HEAD
 .section {    
     display: flex;
     flex:1;
@@ -101,6 +102,40 @@ button:hover {
     gap: 2em;
     justify-content: flex-start;
     margin-top: 20em;    
+=======
+.empty-sentences {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    width: 80%;
+
+
+}
+
+.empty-library-sentence {
+    color:var(--grey);
+    font-size: 20px;
+    font-weight: 400;
+    text-align: center;
+}
+
+.add-songs-sentence {
+    color:var(--background-addButton);
+    font-size: 20px;
+    font-weight: 500;
+    text-align: center;
+}
+
+.section {
+    width: 100%;
+    height: 80%;
+    display: flex;
+    flex:1;
+    flex-wrap: wrap;
+    gap: 2em;
+    justify-content: flex-start;
+    margin: 15% auto 10% 6%;    
+>>>>>>> 71b95ad3d47501df33da8f7f91fbb256063a1f69
 }
 
 /*------------------------card-------------------------*/
@@ -113,7 +148,12 @@ article {
     flex-direction: column;
     justify-content: space-between;
     position: relative;
+<<<<<<< HEAD
     z-index: 1;           
+=======
+    z-index: 1;       
+    /* margin-left: 1.5em; */
+>>>>>>> 71b95ad3d47501df33da8f7f91fbb256063a1f69
     border: .5px solid var(--purple);
 }
 
@@ -277,7 +317,6 @@ article:hover {
 /*------------------------------------------------------footer styles--------------------------------------*/
 
 footer {
-    margin-bottom: 0;
     width: 100%;
     background-color: var(--black);
     color: var(--white);
@@ -290,36 +329,55 @@ footer {
 
 /*----------------------------------------------------media querys------------------------------------------*/
 
+<<<<<<< HEAD
 /*---------movil----------*/
+=======
+/* móviles */
+>>>>>>> 71b95ad3d47501df33da8f7f91fbb256063a1f69
 @media (max-width: 767px) {
+
+    header {
+        padding: 0 20px 0 20px;
+    }
+
     .logo {
         display: none;
     }
 
     header h2 {
         font-size: 30px;
-        margin-left: 1em;
+        margin: 0 1.2em 0 .8em;
+
     }
 
     .add-button {
-        min-height: 35px;
-        min-width: 50px;   
-        margin-right: .8em; 
+        min-height: 15px;
+        min-width: 100px; 
+        margin-left: 1em;  
+        margin-right: 1em; 
     }
 
     .add-button i {
-        font-size:25px;
+        font-size:15px;
         text-align: center;
     }
 
     .add-button p{
-        display: none;
+        font-size: 15px;
     }
 
     .section {
+<<<<<<< HEAD
         padding: 0 1em; 
         margin-top: 15em;    
         margin-bottom: 7rem;       
+=======
+        padding: 0 1em;
+        gap: 2rem;
+        margin-top: 14em;
+        margin-left: 2rem;
+        margin-bottom: 8rem;
+>>>>>>> 71b95ad3d47501df33da8f7f91fbb256063a1f69
     }
     
     article {
@@ -327,7 +385,11 @@ footer {
     }    
 }
 
+<<<<<<< HEAD
 /*-------------tablet----------*/
+=======
+/* tablets */
+>>>>>>> 71b95ad3d47501df33da8f7f91fbb256063a1f69
 @media (min-width: 768px) and (max-width: 1023px) {
 
     header h2 {
@@ -341,20 +403,51 @@ footer {
     }
 
     .section {
+<<<<<<< HEAD
         margin-top: 18rem;
         gap: 3rem;
         padding: 2rem;
         justify-content: flex-start;  
         margin: 35% auto 10% 4%;             
+=======
+        margin-top: 17rem;
+        margin-bottom: 10rem;
+        gap: 2rem;
+        margin-left: 2.5rem;
+>>>>>>> 71b95ad3d47501df33da8f7f91fbb256063a1f69
     }
 
     article {
         min-width: 45%;
+<<<<<<< HEAD
     }
 }
 
 /*---------------pantallas peq--------------*/
 @media (min-width: 1024px) and (max-width: 1690px) {
+=======
+    }
+
+    .add-button {
+        min-height: 15px;
+        min-width: 100px; 
+        margin-left: 1em;  
+        margin-right: 1em; 
+    }
+
+    .add-button i {
+        font-size:15px;
+        text-align: center;
+    }
+
+    .add-button p{
+        font-size: 15px;
+    }
+}
+
+/* pantallas pequeñas */
+@media (min-width: 1024px) and (max-width: 1440px) {
+>>>>>>> 71b95ad3d47501df33da8f7f91fbb256063a1f69
 
     header h2 {
         font-size: 60px;
@@ -364,10 +457,17 @@ footer {
     .section {
         margin-top: 18rem;
         gap: 2rem;
+<<<<<<< HEAD
         padding: 2rem;
         justify-content: flex-start; 
         margin: 16% auto 10% 5%;             
     }    
+=======
+        /* padding: 2rem; */
+        
+    }
+
+>>>>>>> 71b95ad3d47501df33da8f7f91fbb256063a1f69
     article {
         min-width: 30%;
     }
