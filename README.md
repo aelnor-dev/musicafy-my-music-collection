@@ -28,16 +28,22 @@ Make sure you have Node.js and npm installed on your machine. 🖥️
 
 Clone the repository:
 
+```sh
 git clone https://github.com/aelnor-dev/music-collection.git <br>
 cd music-collection
+```
 
 Install the dependencies:
 
+```sh
 npm install
+```
 
 Start the JSON server:
 
+```sh
 npm run api
+```
 
 Open index.html in your browser to use the application. 🌐
 
@@ -131,16 +137,22 @@ Asegúrate de tener Node.js y npm instalados en tu ordenador. 🖥️
 
 Clona el repositorio:
 
+```sh
 git clone https://github.com/aelnor-dev/music-collection.git <br>
 cd music-collection
+```
 
 Instala las dependencias:
 
+```sh
 npm install
+```
 
 Inicia el servidor JSON:
 
+```sh
 npm run api
+```
 
 Abre index.html en tu navegador para usar la aplicación. 🌐
 
